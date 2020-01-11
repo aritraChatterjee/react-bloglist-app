@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import loginService from './services/login';
 import blogService from './services/blogs';
 import Blog from './components/Blog';
@@ -43,12 +43,12 @@ export default class App extends React.Component<{}, IAppState> {
             );
     };
 
-    logout = () => {
+    private logout = () => {
         this.setState({ user: null });
         blogService.setToken(null);
     };
 
-    handleLogin = async (event: any) => {
+    private handleLogin = async (event: any) => {
         event.preventDefault();
 
         try {
@@ -64,7 +64,7 @@ export default class App extends React.Component<{}, IAppState> {
         }
     };
 
-    handleCreateBlog = async (event: any) => {
+    private handleCreateBlog = async (event: any) => {
         event.preventDefault();
 
         const blogObject = {
@@ -88,7 +88,7 @@ export default class App extends React.Component<{}, IAppState> {
         });
     };
 
-    notify = (message: string | null, type: string) => {
+    private notify = (message: string | null, type: string) => {
         this.setState({
             notificationMessage: message,
             notificationType: type

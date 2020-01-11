@@ -1,6 +1,4 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-
 interface INotificationProps {
     message: string | null;
     type: string;
@@ -9,11 +7,6 @@ interface INotificationProps {
 export default class Notification extends React.Component<INotificationProps> {
     constructor(props: INotificationProps) {
         super(props);
-
-        this.state = {
-            anecdotes: [],
-            current: 0
-        };
     }
 
     public render() {
