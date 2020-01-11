@@ -5,10 +5,6 @@ interface INotificationProps {
 }
 
 export default class Notification extends React.Component<INotificationProps> {
-    constructor(props: INotificationProps) {
-        super(props);
-    }
-
     public render() {
         if (this.props.message === null) {
             return null;

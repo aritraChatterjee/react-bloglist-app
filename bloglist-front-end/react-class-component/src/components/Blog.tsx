@@ -6,10 +6,6 @@ interface IBlogProps {
 }
 
 export default class Blog extends React.Component<IBlogProps> {
-    constructor(props: IBlogProps) {
-        super(props);
-    }
-
     public render() {
         return (
             <div>
