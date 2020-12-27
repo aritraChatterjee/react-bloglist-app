@@ -1,15 +1,31 @@
 package edu.aritra.bloglist.document;
 
+import edu.aritra.bloglist.constants.MongoDBConstants;
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document
+@Document(collection = MongoDBConstants.COLLECTION_USER)
 public class User {
+    @Id
+    private ObjectId id;
+
     private String username;
     private String name;
     private String passwordHash;
-    private List<Blog> blogs;
+
+
+    private List<ObjectId> blogs;
+
+    public ObjectId getId() {
+        return id;
+    }
+
+    public void setId(ObjectId id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;
@@ -35,11 +51,8 @@ public class User {
         this.passwordHash = passwordHash;
     }
 
-    public List<Blog> getBlogs() {
+    public List<ObjectId> getBlogs() {
         return blogs;
     }
 
-    public void setBlogs(List<Blog> blogs) {
-        this.blogs = blogs;
-    }
 }

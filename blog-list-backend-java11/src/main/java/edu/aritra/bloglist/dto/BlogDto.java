@@ -1,24 +1,13 @@
-package edu.aritra.bloglist.document;
+package edu.aritra.bloglist.dto;
 
-import edu.aritra.bloglist.constants.MongoDBConstants;
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-@Document(collection = MongoDBConstants.COLLECTION_BLOG)
-public class Blog {
-    @Id
-    private ObjectId id;
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class BlogDto {
     private String title;
     private String author;
     private String url;
-
-    private ObjectId user;
-
-    public String getId() {
-        return id.toHexString();
-    }
-
+    private String user;
 
     public String getTitle() {
         return title;
@@ -44,11 +33,11 @@ public class Blog {
         this.url = url;
     }
 
-    public ObjectId getUser() {
+    public String getUser() {
         return user;
     }
 
-    public void setUser(ObjectId user) {
+    public void setUser(String user) {
         this.user = user;
     }
 }
