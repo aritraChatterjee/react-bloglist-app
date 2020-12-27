@@ -1,6 +1,6 @@
-package edu.aritra.bloglist.repository;
+package edu.aritra.bloglist.nosql.repository;
 
-import edu.aritra.bloglist.document.Blog;
+import edu.aritra.bloglist.nosql.document.Blog;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

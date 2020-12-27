@@ -1,6 +1,6 @@
 package edu.aritra.bloglist.mapper;
 
-import edu.aritra.bloglist.document.Blog;
+import edu.aritra.bloglist.nosql.document.Blog;
 import edu.aritra.bloglist.dto.BlogDto;
 
 public class BlogToBlogDtoMapper {

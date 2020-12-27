@@ -1,6 +1,6 @@
 package edu.aritra.bloglist.controller;
 
-import edu.aritra.bloglist.document.User;
+import edu.aritra.bloglist.nosql.document.User;
 import edu.aritra.bloglist.dto.UserDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

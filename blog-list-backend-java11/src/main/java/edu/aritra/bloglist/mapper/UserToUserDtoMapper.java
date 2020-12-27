@@ -1,6 +1,6 @@
 package edu.aritra.bloglist.mapper;
 
-import edu.aritra.bloglist.document.User;
+import edu.aritra.bloglist.nosql.document.User;
 import edu.aritra.bloglist.dto.UserDto;
 import org.bson.types.ObjectId;
 

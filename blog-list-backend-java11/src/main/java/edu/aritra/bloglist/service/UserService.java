@@ -1,7 +1,7 @@
 package edu.aritra.bloglist.service;
 
-import edu.aritra.bloglist.document.User;
-import edu.aritra.bloglist.repository.UserRepository;
+import edu.aritra.bloglist.nosql.document.User;
+import edu.aritra.bloglist.nosql.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package edu.aritra.bloglist.repository;
+package edu.aritra.bloglist.nosql.repository;
 
-import edu.aritra.bloglist.document.User;
+import edu.aritra.bloglist.nosql.document.User;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
