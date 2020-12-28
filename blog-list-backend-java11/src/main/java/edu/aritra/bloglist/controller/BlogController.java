@@ -1,9 +1,13 @@
 package edu.aritra.bloglist.controller;
 
-import edu.aritra.bloglist.nosql.document.Blog;
 import edu.aritra.bloglist.dto.BlogDto;
+import edu.aritra.bloglist.dto.UserDto;
+import edu.aritra.bloglist.exception.InvalidTokenException;
+import edu.aritra.bloglist.exception.UserNotFoundException;
 import edu.aritra.bloglist.mapper.BlogDtoToBlogMapper;
 import edu.aritra.bloglist.mapper.BlogToBlogDtoMapper;
+import edu.aritra.bloglist.nosql.document.Blog;
+import edu.aritra.bloglist.security.Authenticator;
 import edu.aritra.bloglist.service.BlogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +24,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @RestController
@@ -29,6 +35,9 @@ public class BlogController {
 
     @Autowired
     private BlogService blogService;
+
+    @Autowired
+    private Authenticator authenticator;
 
     Logger logger = LoggerFactory.getLogger(BlogController.class);
 
@@ -40,9 +49,15 @@ public class BlogController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void createBlog(@RequestBody BlogDto blogDto) {
+    public void createBlog(@RequestBody BlogDto blogDto, HttpServletRequest request) throws UserNotFoundException, InvalidTokenException {
+        String authenticationToken = authenticator.getTokenFrom(request);
+        Optional<UserDto> user = authenticator.getUserFromToken(authenticationToken);
+        if (user.isEmpty()) {
+            logger.info("Invalid token");
+            throw new InvalidTokenException();
+        }
         Blog blog = BlogDtoToBlogMapper.mapToBlog(blogDto);
-        blogService.saveBlog(blog, blogDto.getUser());
+        blogService.saveBlog(blog, user.get().getId());
         logger.info("Blog created");
     }
 
@@ -57,4 +72,5 @@ public class BlogController {
     public void deleteBlogById(@PathVariable String id) {
         logger.info("Blog deleted");
     }
+
 }

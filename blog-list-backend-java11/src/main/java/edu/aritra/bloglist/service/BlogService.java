@@ -1,5 +1,6 @@
 package edu.aritra.bloglist.service;
 
+import edu.aritra.bloglist.exception.UserNotFoundException;
 import edu.aritra.bloglist.nosql.document.Blog;
 import edu.aritra.bloglist.nosql.document.User;
 import edu.aritra.bloglist.nosql.repository.BlogRepository;
@@ -21,11 +22,13 @@ public class BlogService {
         return repository.findAll();
     }
 
-    public void saveBlog(Blog blog, String id) {
-        Optional<User> blogUser = userService.findUserById(id);
+    public void saveBlog(Blog blog, String userId) throws UserNotFoundException {
+        Optional<User> blogUser = userService.findUserById(userId);
         if (blogUser.isPresent()) {
             blog.setUser(blogUser.get().getId());
             repository.save(blog);
+        } else {
+            throw new UserNotFoundException();
         }
     }
 }
