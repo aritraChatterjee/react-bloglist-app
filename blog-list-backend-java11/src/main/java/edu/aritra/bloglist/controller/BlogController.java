@@ -49,7 +49,8 @@ public class BlogController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void createBlog(@RequestBody BlogDto blogDto, HttpServletRequest request) throws UserNotFoundException, InvalidTokenException {
+    public void createBlog(@RequestBody BlogDto blogDto, HttpServletRequest request)
+            throws UserNotFoundException, InvalidTokenException {
         String authenticationToken = authenticator.getTokenFrom(request);
         Optional<UserDto> user = authenticator.getUserFromToken(authenticationToken);
         if (user.isEmpty()) {

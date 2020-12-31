@@ -1,9 +1,9 @@
 package edu.aritra.bloglist.controller;
 
-import edu.aritra.bloglist.nosql.document.User;
 import edu.aritra.bloglist.dto.UserDto;
 import edu.aritra.bloglist.mapper.UserDtoToUserMapper;
 import edu.aritra.bloglist.mapper.UserToUserDtoMapper;
+import edu.aritra.bloglist.nosql.document.User;
 import edu.aritra.bloglist.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
