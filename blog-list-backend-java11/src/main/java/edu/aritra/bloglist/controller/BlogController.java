@@ -29,8 +29,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import static edu.aritra.bloglist.controller.constant.ApiContants.API_PATH;
+
 @RestController
-@RequestMapping("/blogs")
+@RequestMapping(API_PATH + "/blogs")
 public class BlogController {
 
     @Autowired
@@ -65,13 +67,13 @@ public class BlogController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void updateBlogById(@PathVariable String id, @RequestBody Blog blog) {
-        logger.info("Blog updated");
+        logger.info("Blog update : not yet implemented");
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteBlogById(@PathVariable String id) {
-        logger.info("Blog deleted");
+        logger.info("Blog delete : not yet implemented");
     }
 
 }

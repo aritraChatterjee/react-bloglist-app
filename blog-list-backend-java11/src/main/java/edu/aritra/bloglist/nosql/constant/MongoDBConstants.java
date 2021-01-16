@@ -1,4 +1,4 @@
-package edu.aritra.bloglist.nosql.constants;
+package edu.aritra.bloglist.nosql.constant;
 
 public class MongoDBConstants {
     public static final String COLLECTION_USER="users";

@@ -23,8 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static edu.aritra.bloglist.controller.constant.ApiContants.API_PATH;
+
 @RestController
-@RequestMapping("/users")
+@RequestMapping(API_PATH + "/users")
 public class UserController {
 
     Logger logger = LoggerFactory.getLogger(UserController.class);
@@ -52,12 +54,12 @@ public class UserController {
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void updateUserById(@PathVariable String id, @RequestBody User user) {
-        logger.info("User updated");
+        logger.info("User update : not yet implemented");
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public void deleteUserById(@PathVariable String id) {
-        logger.info("User deleted");
+        logger.info("User delete : not yet implemented");
     }
 }

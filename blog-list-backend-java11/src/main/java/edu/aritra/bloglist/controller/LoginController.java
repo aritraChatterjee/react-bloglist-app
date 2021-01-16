@@ -16,8 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Optional;
 
+import static edu.aritra.bloglist.controller.constant.ApiContants.API_PATH;
+
 @RestController
-@RequestMapping("/login")
+@RequestMapping(API_PATH + "/login")
 public class LoginController {
     Logger logger = LoggerFactory.getLogger(LoginController.class);
 

@@ -1,6 +1,6 @@
 package edu.aritra.bloglist.nosql.document;
 
-import edu.aritra.bloglist.nosql.constants.MongoDBConstants;
+import edu.aritra.bloglist.nosql.constant.MongoDBConstants;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
